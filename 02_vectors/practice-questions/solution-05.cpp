@@ -12,14 +12,26 @@ void print(vector<int> list, string caption) {
     cout << endl;
 } 
 
+// Sorting + One Pass
 vector<int> removeDuplicates(vector<int> arr) {
-    vector<int> temp;
+    if(arr.empty()) return {};
+    sort(arr.begin(), arr.end());
+    vector<int> seen;
+    seen.emplace_back(arr[0]);
 
-    return temp;
+    for(int i = 1; i < arr.size(); i++) {
+        if(seen.back() != arr.at(i)) {
+            seen.emplace_back(arr.at(i));
+        }
+    }
+
+    return seen;
 }
 
 int main() {
     vector<int> v{1, 2, 3, 3, 1, 1, 2, 5, 2};
     print(v, "vector<int> v = ");
+    vector<int> r = removeDuplicates(v);
+    print(r, "vector<int> r = ");
     return 0;
 }
