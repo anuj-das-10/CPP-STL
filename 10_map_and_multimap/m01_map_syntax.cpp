@@ -16,13 +16,19 @@ void print2(map<int, string> map) {
 }
 
 int main() {
-    map<int, string> mp;
+    map<int, string> mp{{5, "Ruby"}, {6, "Perl"}, {4, "Python"}};
     mp.insert({2, "Rust"});
     mp.insert({1, "GoLang"});
     mp[0] = "Java";
     mp[3] = "JavaScript";
-
+    
     print1(mp);
+    
+    mp.erase(1);
     print2(mp);
+
+    mp.erase(mp.find(5));
+    print2(mp);
+
     return 0;
 }
