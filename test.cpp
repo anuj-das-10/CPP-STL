@@ -6,4 +6,6 @@ int main() {
 	cin >> ch;
 	int ascii = (int)ch;
 	cout << ch << " = " << ascii;
+
+	return 0;
 }
